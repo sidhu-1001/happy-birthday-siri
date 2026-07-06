@@ -1,0 +1,425 @@
+/* ==================================================
+   BIRTHDAY SCREEN V3.0
+================================================== */
+
+#birthday-screen{
+
+    overflow:hidden;
+
+
+    background:
+    radial-gradient(
+        circle at top,
+        #223564 0%,
+        #132241 45%,
+        #08111F 100%
+    );
+
+}
+
+/* ==================================================
+   ANIMATED GLOW BLOBS
+================================================== */
+
+#birthday-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    top:-180px;
+    left:-180px;
+
+    border-radius:50%;
+
+    background:rgba(255,94,156,.08);
+
+    filter:blur(120px);
+
+    animation:floatGlow 12s ease-in-out infinite;
+
+}
+
+#birthday-screen::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:360px;
+    height:360px;
+
+    right:-150px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:rgba(255,196,107,.07);
+
+    filter:blur(120px);
+
+    animation:floatGlow 15s ease-in-out infinite reverse;
+
+}
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+#birthday-screen .container{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding-top:60px;
+
+}
+
+/* ==================================================
+   FLOATING CAKE
+================================================== */
+
+.cake{
+
+    font-size:78px;
+
+    margin-bottom:24px;
+
+    animation:
+
+        float 4s ease-in-out infinite,
+
+        glow 3s infinite;
+
+    filter:
+
+        drop-shadow(0 0 25px rgba(255,180,120,.35));
+
+}
+
+/* ==================================================
+   SPARKLES
+================================================== */
+
+.cake::before{
+
+    content:"✨";
+
+    position:absolute;
+
+    margin-left:-30px;
+
+    margin-top:-18px;
+
+    font-size:18px;
+
+    animation:pulse 2s infinite;
+
+}
+
+.cake::after{
+
+    content:"✨";
+
+    position:absolute;
+
+    margin-left:20px;
+
+    margin-top:-10px;
+
+    font-size:16px;
+
+    animation:pulse 2.5s infinite;
+
+}
+
+/* ==================================================
+   TITLE
+================================================== */
+
+#birthday-screen h1{
+
+    font-size:2.6rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    color:white;
+
+    letter-spacing:.5px;
+
+}
+
+#birthday-screen h2{
+
+    font-size:1.5rem;
+
+    margin-bottom:24px;
+
+    color:var(--pink);
+
+    text-shadow:
+
+        0 0 18px rgba(255,94,156,.35);
+
+}
+
+/* ==================================================
+   QUOTE
+================================================== */
+
+.birthday-quote{
+
+    max-width:320px;
+
+    text-align:center;
+
+    color:var(--gold);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    font-style:italic;
+
+    margin-bottom:22px;
+
+    opacity:.9;
+
+}
+.continue.show{
+
+    opacity:1;
+
+}
+
+.cake.sparkle{
+
+    animation:
+        float 4s ease-in-out infinite,
+        glow 2s infinite,
+        heartBeat .8s ease;
+
+}
+/* ==================================================
+   MESSAGE CARD
+================================================== */
+
+#birthday-message{
+
+    width:100%;
+    max-width:340px;
+
+    padding:28px 26px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.28),
+        inset 0 1px 1px rgba(255,255,255,.08);
+
+    color:#EAF1FF;
+
+    font-size:17px;
+
+    line-height:2.1;
+
+    text-align:center;
+
+    transition:.5s;
+
+}
+
+
+
+/* ==================================================
+   CURSOR
+================================================== */
+
+.typing::after{
+
+    content:"|";
+
+    color:var(--pink);
+
+    animation:cursor .8s infinite;
+
+}
+
+/* ==================================================
+   CONTINUE
+================================================== */
+
+#birthday-screen .continue{
+
+    width:70px;
+    height:70px;
+
+    margin-top:36px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    color:var(--pink);
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 35px rgba(255,94,156,.20);
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .6s,
+        transform .6s;
+
+}
+
+#birthday-screen .continue.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    animation:
+        bounce 2s infinite,
+        glow 3s infinite;
+
+}
+
+#birthday-screen .continue:hover{
+
+    transform:translateY(-4px) scale(1.08);
+
+}
+
+/* ==================================================
+   HEARTBEAT FOR NAME
+================================================== */
+
+#birthday-screen h2{
+
+    animation:heartbeat 2.5s infinite;
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:430px){
+
+    #birthday-screen .container{
+
+        padding-top:48px;
+
+    }
+
+    .cake{
+
+        font-size:66px;
+
+        margin-bottom:18px;
+
+    }
+
+    #birthday-screen h1{
+
+        font-size:2.2rem;
+
+    }
+
+    #birthday-screen h2{
+
+        font-size:1.4rem;
+
+        margin-bottom:20px;
+
+    }
+
+    .birthday-quote{
+
+        font-size:16px;
+
+        margin-bottom:24px;
+
+    }
+
+    #birthday-message{
+
+        font-size:16px;
+
+        padding:28px 22px;
+
+        line-height:2;
+
+    }
+
+}
+.birthday-quote{
+
+    position:relative;
+
+    padding:16px 0;
+
+}
+
+.birthday-quote::before,
+.birthday-quote::after{
+
+    content:"";
+
+    display:block;
+
+    width:90px;
+
+    height:1px;
+
+    margin:0 auto 16px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,196,107,.8),
+        transparent
+    );
+
+}
+
+.birthday-quote::after{
+
+    margin:16px auto 0;
+
+}

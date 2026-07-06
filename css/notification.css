@@ -1,0 +1,247 @@
+/* ==================================================
+   NOTIFICATION SCREEN V3
+================================================== */
+
+#notification-screen{
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top,
+        #233763 0%,
+        #132344 45%,
+        #08111F 100%);
+
+}
+
+/* ==================================================
+   WALLPAPER GLOW
+================================================== */
+
+.notification-wallpaper{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(circle at 20% 15%,rgba(255,94,156,.12),transparent 35%),
+        radial-gradient(circle at 85% 20%,rgba(255,196,107,.08),transparent 28%),
+        radial-gradient(circle at 60% 90%,rgba(255,255,255,.03),transparent 25%);
+
+    animation:floatGlow 15s ease-in-out infinite;
+
+}
+
+/* ==================================================
+   STATUS BAR
+================================================== */
+
+.phone-status{
+
+    position:absolute;
+
+    top:22px;
+
+    left:22px;
+
+    right:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    opacity:.95;
+
+}
+
+.status-icons{
+
+    font-size:14px;
+
+}
+
+/* ==================================================
+   WRAPPER
+================================================== */
+
+.notification-wrapper{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    max-width:360px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/* ==================================================
+   CARD
+================================================== */
+
+.notification-card{
+
+    width:100%;
+
+    padding:22px;
+
+    border-radius:26px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+    transform:translateY(-120px);
+
+    opacity:0;
+
+    animation:
+
+        notificationDrop 1s cubic-bezier(.18,.89,.32,1.28) forwards .4s;
+
+}
+
+/* ==================================================
+   TOP
+================================================== */
+
+.notification-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.notification-app{
+
+    color:var(--pink);
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+.notification-time{
+
+    color:#BFC9DA;
+
+    font-size:14px;
+
+}
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.notification-title{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:white;
+
+    margin-bottom:8px;
+
+}
+
+/* ==================================================
+   FROM
+================================================== */
+
+.notification-from{
+
+    color:#D7E5F7;
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+}
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+.notification-text{
+
+    color:#EEF3FF;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/* ==================================================
+   BUTTON
+================================================== */
+
+#open-notification{
+
+    margin-top:40px;
+
+    width:220px;
+
+    animation:buttonGlow 3s linear infinite;
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:430px){
+
+    .notification-card{
+
+        padding:20px;
+
+    }
+
+    .notification-title{
+
+        font-size:24px;
+
+    }
+
+    .notification-from{
+
+        font-size:17px;
+
+    }
+
+    .notification-text{
+
+        font-size:16px;
+
+    }
+
+}

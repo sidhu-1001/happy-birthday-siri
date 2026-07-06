@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Happy Birthday Siri ❤️</title>
+
+    <meta name="theme-color" content="#08111F">
+    <meta name="color-scheme" content="dark">
+    <meta name="format-detection" content="telephone=no">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- ==========================================
+SCREEN 0 • NOTIFICATION
+========================================== -->
+
+<section
+    id="notification-screen"
+    class="screen active">
+
+    <div class="notification-wallpaper"></div>
+
+    <div class="phone-status">
+
+        <span class="time">
+            9:41
+        </span>
+
+        <span class="status-icons">
+            📶 &nbsp; 📡 &nbsp; 🔋
+        </span>
+
+    </div>
+
+    <div class="notification-wrapper">
+
+        <div class="notification-card">
+
+            <div class="notification-top">
+
+                <div class="notification-app">
+
+                    💖 birthday.exe
+
+                </div>
+
+                <div class="notification-time">
+
+                    now
+
+                </div>
+
+            </div>
+
+            <div class="notification-title">
+
+                New Message
+
+            </div>
+
+            <div class="notification-from">
+
+                From Avanidhar
+
+            </div>
+
+            <div class="notification-text">
+
+                I made something
+                special for you...
+
+            </div>
+
+        </div>
+
+        <button id="open-notification">
+
+            Tap To Open
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+BOOT SCREEN
+========================================== -->
+
+<section
+    id="boot-screen"
+    class="screen">
+
+    <div class="container">
+
+        <div class="boot-logo">
+
+            ❤️
+
+        </div>
+
+        <h1 id="boot-title">
+
+            birthday.exe
+
+            <small>
+
+                Personalized Birthday System
+
+            </small>
+
+        </h1>
+
+        <div id="terminal">
+
+            <div class="terminal-header">
+
+                <div class="terminal-dots">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+                <div class="terminal-name">
+
+                    Terminal
+
+                </div>
+
+            </div>
+
+            <div
+                class="terminal-body"
+                id="terminal-body">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+BIRTHDAY
+========================================== -->
+
+<section
+    id="birthday-screen"
+    class="screen">
+
+    <div class="container">
+
+        <div class="icon">
+
+            🎂
+
+        </div>
+
+        <h1>
+
+            Happy Birthday
+
+        </h1>
+
+        <h2>
+
+            Siri ❤️
+
+        </h2>
+
+        <p class="birthday-quote">
+
+            Some people deserve more than just a birthday wish.
+
+        </p>
+
+        <p id="birthday-message"></p>
+
+        <div class="continue">
+
+            ↓
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+MEMORY
+========================================== -->
+
+<section
+    id="memory-screen"
+    class="screen">
+
+    <div class="container">
+
+        <div class="icon">
+
+            ✨
+
+        </div>
+
+        <h1>
+
+            Memory Scan
+
+        </h1>
+
+        <p>
+
+            Recovering beautiful memories...
+
+        </p>
+
+        <div id="memory-loader"></div>
+
+        <div id="memory-list"></div>
+
+        <div class="continue">
+
+            ↓
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+LETTER INTRO
+========================================== -->
+
+<section
+    id="letter-intro"
+    class="screen">
+
+    <div class="container">
+
+        <div class="letter-icon">
+
+            💌
+
+        </div>
+
+        <p class="scan-status">
+
+            Memory Scan Complete
+
+        </p>
+
+        <h1>
+
+            Private Letter
+
+        </h1>
+
+        <p class="letter-subtitle">
+
+            A message written only for you.
+
+        </p>
+
+        <div class="letter-card">
+
+            <div id="letter-intro-text">
+
+            </div>
+
+        </div>
+
+        <button
+            id="open-letter"
+            disabled>
+
+            Open My Letter ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+PERSONAL LETTER
+========================================== -->
+
+<section id="letter-screen" class="screen">
+
+    <div class="letter-paper">
+
+        <div id="letter-content"></div>
+
+        <div class="letter-footer">
+
+            <div id="page-number"></div>
+
+            <button id="next-page">
+                Continue ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+ENDING
+========================================== -->
+
+<!-- ==========================================
+ENDING
+========================================== -->
+
+<section id="ending-screen" class="screen">
+
+    <div class="ending-card">
+
+        <div class="ending-heart">
+            ❤️
+        </div>
+
+        <h1 class="ending-title">
+            birthday.exe
+        </h1>
+
+        <div class="ending-status">
+            MISSION COMPLETE
+        </div>
+
+        <div class="ending-divider"></div>
+
+        <div id="ending-message"></div>
+
+        <div class="ending-divider"></div>
+
+        <div id="terminal-ending"></div>
+
+        <button id="replay">
+
+            Replay Memories ❤️
+
+        </button>
+
+        <p id="ending-ps"></p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+GLOBAL LAYERS
+========================================== -->
+
+<div id="particles"></div>
+
+<div id="heart-container"></div>
+
+<canvas id="confetti-canvas"></canvas>
+
+
+<div id="developer-mode"></div>
+
+</div>
+
+<script
+    type="module"
+    src="script.js">
+
+</script>
+
+</body>
+
+</html>

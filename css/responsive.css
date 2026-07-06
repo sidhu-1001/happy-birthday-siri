@@ -1,0 +1,193 @@
+/* ==================================================
+   RESPONSIVE.CSS
+   Mobile Enhancement Layer
+================================================== */
+
+/* ==========================================
+   SMALL PHONES
+   (360px and below)
+========================================== */
+
+@media (max-width:360px){
+
+    h1{
+
+        font-size:1.8rem;
+
+    }
+
+    h2{
+
+        font-size:1.15rem;
+
+    }
+
+    p{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+    }
+
+    .container{
+
+        max-width:100%;
+
+    }
+
+    button{
+
+        width:100%;
+
+        padding:14px 20px;
+
+    }
+
+    .letter-paper{
+
+        height:92dvh;
+
+        padding:22px 18px;
+
+    }
+
+}
+
+/* ==========================================
+   MOST ANDROID PHONES
+   Pixel / Samsung
+========================================== */
+
+@media (max-width:430px){
+
+    .screen{
+
+        padding:
+
+            calc(18px + var(--safe-top))
+
+            18px
+
+            calc(20px + var(--safe-bottom));
+
+    }
+
+    .container{
+
+        max-width:390px;
+
+    }
+
+}
+
+/* ==========================================
+   LARGE PHONES
+========================================== */
+
+@media (min-width:431px){
+
+    .container{
+
+        max-width:430px;
+
+    }
+
+}
+
+/* ==========================================
+   LANDSCAPE
+========================================== */
+
+@media (orientation:landscape){
+
+    .screen{
+
+        overflow-y:auto;
+
+        align-items:flex-start;
+
+        padding-top:30px;
+
+    }
+
+    .letter-paper{
+
+        height:auto;
+
+        min-height:90vh;
+
+    }
+
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (min-width:768px){
+
+    .container{
+
+        max-width:520px;
+
+    }
+
+    .letter-paper{
+
+        max-width:520px;
+
+    }
+
+}
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media (min-width:1024px){
+
+    button:hover{
+
+        transform:translateY(-3px);
+
+    }
+
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/* ==========================================
+   DARK MODE SUPPORT
+========================================== */
+
+@media (prefers-color-scheme:dark){
+
+    body{
+
+        background:
+        linear-gradient(
+            180deg,
+            var(--bg-dark),
+            var(--bg-primary)
+        );
+
+    }
+
+}

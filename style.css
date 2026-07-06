@@ -1,0 +1,15 @@
+@import url("./css/variables.css");
+@import url("./css/global.css");
+@import url("./css/animations.css");
+
+@import url("./css/notification.css");
+@import url("./css/boot.css");
+@import url("./css/birthday.css");
+@import url("./css/memory.css");
+
+@import url("./css/letter.css");
+@import url("./css/personal-letter.css");
+
+@import url("./css/ending.css");
+
+@import url("./css/responsive.css");

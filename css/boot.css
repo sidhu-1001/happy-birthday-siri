@@ -1,0 +1,828 @@
+/* ==================================================
+   BOOT SCREEN V3.0
+   Apple Intelligence × JARVIS
+================================================== */
+
+/* ==========================================
+   SCREEN
+========================================== */
+
+#boot-screen{
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top,
+        #223864 0%,
+        #142241 42%,
+        #08111F 100%);
+
+}
+
+/* ==========================================
+   AURORA GLOW
+========================================== */
+
+#boot-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    top:-260px;
+    left:-220px;
+
+    border-radius:50%;
+
+    background:rgba(255,94,156,.08);
+
+    filter:blur(130px);
+
+    animation:floatGlow 14s ease-in-out infinite;
+
+}
+
+#boot-screen::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    right:-170px;
+    bottom:-170px;
+
+    border-radius:50%;
+
+    background:rgba(120,180,255,.08);
+
+    filter:blur(120px);
+
+    animation:floatGlow 18s ease-in-out infinite reverse;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+#boot-screen .container{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.boot-logo{
+
+    width:96px;
+
+    height:96px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:44px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 0 30px rgba(255,94,156,.25),
+
+        0 0 90px rgba(255,94,156,.08);
+
+    animation:
+
+        pulse 3.2s ease-in-out infinite,
+
+        glow 4s ease-in-out infinite;
+
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+#boot-title{
+
+    margin-top:26px;
+
+    margin-bottom:34px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+#boot-title small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#AEBBD2;
+
+    font-size:14px;
+
+    font-weight:400;
+
+}
+
+/* ==========================================
+   TERMINAL
+========================================== */
+
+#terminal{
+
+    width:100%;
+
+    max-width:380px;
+
+    padding:0;
+
+    overflow:hidden;
+
+    border-radius:26px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(26px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 25px 70px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   TERMINAL HEADER
+========================================== */
+
+.terminal-header{
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    background:rgba(255,255,255,.04);
+
+}
+
+.terminal-dots{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.terminal-dots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+}
+
+.terminal-dots span:nth-child(1){
+
+    background:#FF5F57;
+
+}
+
+.terminal-dots span:nth-child(2){
+
+    background:#FFBD2F;
+
+}
+
+.terminal-dots span:nth-child(3){
+
+    background:#28C840;
+
+}
+
+.terminal-name{
+
+    flex:1;
+
+    text-align:center;
+
+    color:#C8D4E7;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+/* ==========================================
+   TERMINAL BODY
+========================================== */
+
+.terminal-body{
+
+    padding:22px;
+
+    max-height:420px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   TERMINAL LINES
+========================================== */
+
+.terminal-line{
+
+    margin:14px 0;
+
+    color:#DCE7F7;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    opacity:0;
+
+    animation:fadeUp .45s forwards;
+
+}
+
+/* ==========================================
+   COLORS
+========================================== */
+
+.terminal-command{
+
+    color:#59F28E;
+
+    font-weight:600;
+
+}
+
+.terminal-success{
+
+    color:#FFC46B;
+
+    font-weight:600;
+
+}
+
+.terminal-error{
+
+    color:#FF7C7C;
+
+}
+
+.terminal-heart{
+
+    color:#FF5E9C;
+
+    font-weight:600;
+
+    text-shadow:
+
+        0 0 12px rgba(255,94,156,.35);
+
+}
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    margin:18px 0 34px;
+
+    border-radius:999px;
+
+    background:#283b66;
+
+    overflow:hidden;
+
+}
+
+.progress span{
+
+    display:block;
+
+    width:0;
+
+    height:100%;
+
+    position:relative;
+
+    border-radius:999px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #ff5f9c,
+        #ff9b86,
+        #ffc96d
+    );
+
+    transition:1s;
+
+}
+
+.progress span::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-45px;
+
+    top:0;
+
+    width:45px;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    animation:shine 1.3s linear infinite;
+
+}
+
+
+.boot-ready{
+
+    height:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    animation:fadeUp .8s ease;
+
+}
+
+.ready-heart{
+
+    font-size:54px;
+
+    margin-bottom:24px;
+
+    animation:heartBeat 1.5s infinite;
+
+}
+
+.boot-ready h2{
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.boot-ready p{
+
+    color:var(--pink);
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:28px;
+
+}
+
+.boot-ready .version{
+
+    color:#8f9ab4;
+
+    letter-spacing:4px;
+
+    font-size:14px;
+
+}
+/* ==================================================
+   READY CARD
+================================================== */
+
+.ready{
+
+    width:100%;
+
+    margin-top:24px;
+
+    padding:28px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.03),
+            rgba(255,255,255,.01)
+        );
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+
+        opacity .8s,
+
+        transform .8s;
+
+}
+
+.ready.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==================================================
+   HEART MODE
+================================================== */
+
+.ready-heart{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:var(--pink);
+
+    letter-spacing:.5px;
+
+    margin-bottom:14px;
+
+    animation:
+
+        pulse 2.5s ease-in-out infinite,
+
+        glow 4s infinite;
+
+}
+
+/* ==================================================
+   READY TITLE
+================================================== */
+
+.ready h2{
+
+    margin-bottom:10px;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+/* ==================================================
+   READY TEXT
+================================================== */
+
+.ready p{
+
+    color:#DCE6F8;
+
+    font-size:15px;
+
+    margin-top:8px;
+
+    animation:blink 1.5s infinite;
+
+}
+
+/* ==================================================
+   VERSION
+================================================== */
+
+.version{
+
+    margin-top:20px;
+
+    color:#7F91AE;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+}
+
+/* ==================================================
+   CURSOR
+================================================== */
+
+.cursor{
+
+    display:inline-block;
+
+    width:9px;
+
+    height:18px;
+
+    margin-left:3px;
+
+    background:#59F28E;
+
+    animation:blink .8s infinite;
+
+}
+
+/* ==================================================
+   TERMINAL SHIMMER
+================================================== */
+
+#terminal::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:26px;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent,
+
+            rgba(255,255,255,.03),
+
+            transparent
+
+        );
+
+    transform:translateX(-100%);
+
+    animation:terminalShine 8s linear infinite;
+
+    pointer-events:none;
+
+}
+
+/* ==================================================
+   TERMINAL SCROLL
+================================================== */
+
+#terminal{
+
+    position:relative;
+
+}
+
+/* ==================================================
+   READY HOVER
+================================================== */
+
+.ready:hover{
+
+    transform:
+
+        translateY(-2px)
+
+        scale(1.01);
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:430px){
+
+    .boot-logo{
+
+        width:84px;
+
+        height:84px;
+
+        font-size:40px;
+
+    }
+
+    #boot-title{
+
+        font-size:28px;
+
+    }
+
+    #boot-title small{
+
+        font-size:13px;
+
+    }
+
+    #terminal{
+
+        max-width:100%;
+
+    }
+
+    .terminal-header{
+
+        height:44px;
+
+    }
+
+    .terminal-body{
+
+        padding:18px;
+
+    }
+
+    .terminal-line{
+
+        font-size:14px;
+
+    }
+
+    .ready{
+
+        padding:22px 18px;
+
+    }
+
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media(min-width:768px){
+
+    #terminal{
+
+        max-width:430px;
+
+    }
+
+}
+
+/* ==================================================
+   DESKTOP
+================================================== */
+
+@media(min-width:1024px){
+
+    .boot-logo:hover{
+
+        transform:scale(1.05);
+
+    }
+
+}
+
+/* ==================================================
+   PARTICLE PLACEHOLDER
+================================================== */
+
+.boot-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+/* ==================================================
+   GLOW RING
+================================================== */
+
+.boot-ring{
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.04);
+
+    animation:rotateRing 25s linear infinite;
+
+}
+
+/* ==================================================
+   LOGO SHADOW
+================================================== */
+
+.boot-logo{
+
+    position:relative;
+
+}
+
+.boot-logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(255,94,156,.08);
+
+    filter:blur(45px);
+
+    z-index:-1;
+
+}
+
+/* ==================================================
+   FOOTER SPACING
+================================================== */
+
+.ready:last-child{
+
+    margin-bottom:6px;
+
+}

@@ -1,0 +1,320 @@
+/* ==================================================
+   ENDING SCREEN
+   birthday.exe v6.0
+================================================== */
+
+#ending-screen{
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #223564 0%,
+        #132241 45%,
+        #08111F 100%
+    );
+
+}
+
+/* ==================================================
+   BACKGROUND GLOW
+================================================== */
+
+#ending-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    top:-180px;
+    left:-180px;
+
+    border-radius:50%;
+
+    background:rgba(255,94,156,.08);
+
+    filter:blur(120px);
+
+}
+
+#ending-screen::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:340px;
+    height:340px;
+
+    right:-150px;
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:rgba(255,196,107,.08);
+
+    filter:blur(120px);
+
+}
+
+/* ==================================================
+   CARD
+================================================== */
+
+.ending-card{
+
+    width:92%;
+    max-width:380px;
+
+    height:88dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    border-radius:34px;
+
+    overflow:hidden;
+
+    padding:0;
+
+    border-radius:34px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #FFFDF9,
+            #F8F3E8
+        );
+
+    text-align:center;
+
+    box-shadow:
+
+        0 35px 80px rgba(0,0,0,.35);
+
+}
+
+/* ==================================================
+   HEART
+================================================== */
+
+.ending-heart{
+
+    font-size:62px;
+
+    animation:heartbeat 1.8s infinite;
+
+}
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.ending-title{
+
+    margin-top:16px;
+
+    color:#2C2C2C;
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+}
+
+.ending-status{
+
+    margin-top:12px;
+
+    color:#ff5b93;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+}
+
+/* ==================================================
+   DIVIDER
+================================================== */
+
+.ending-divider{
+
+    width:70%;
+
+    height:1px;
+
+    margin:24px auto;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,0,0,.12),
+            transparent
+        );
+
+}
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+#ending-message{
+
+    text-align:left;
+
+}
+
+#ending-message p{
+
+    color:#4C4C4C;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:12px;
+
+}
+
+/* ==================================================
+   TERMINAL
+================================================== */
+
+#terminal-ending{
+
+    margin-top:12px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#0C1323;
+
+    text-align:left;
+
+    min-height:140px;
+
+    font-family:monospace;
+
+    overflow:hidden;
+
+}
+
+.terminal-line{
+
+    color:#59ff8b;
+
+    margin-bottom:8px;
+
+    animation:fadeUp .35s ease;
+
+}
+
+/* ==================================================
+   REPLAY BUTTON
+================================================== */
+
+#replay{
+
+    width:100%;
+
+    height:58px;
+
+    margin-top:28px;
+
+    border:none;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ff4f9d,
+            #ff7d86,
+            #ffc364
+        );
+
+    box-shadow:
+
+        0 18px 35px rgba(255,94,156,.28);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.45s;
+
+}
+
+#replay.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+/* ==================================================
+   PS
+================================================== */
+
+#ending-ps{
+
+    margin-top:26px;
+
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:430px){
+
+    .ending-card{
+
+        width:92%;
+
+        padding:34px 24px;
+
+    }
+
+    .ending-title{
+
+        font-size:2rem;
+
+    }
+
+    #ending-message p{
+
+        font-size:17px;
+
+    }
+
+}
