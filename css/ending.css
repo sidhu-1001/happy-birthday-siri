@@ -5,7 +5,7 @@
 
 #ending-screen{
 
-    overflow:hidden;
+    overflow:visible;
 
     background:
     radial-gradient(
@@ -77,7 +77,7 @@
 
     border-radius:34px;
 
-    overflow:hidden;
+    overflow:visible;
 
     padding:0;
 
@@ -206,7 +206,7 @@
 
     font-family:monospace;
 
-    overflow:hidden;
+    overflow:visible;
 
 }
 

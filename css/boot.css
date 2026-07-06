@@ -9,7 +9,7 @@
 
 #boot-screen{
 
-    overflow:hidden;
+    overflow:visible;
 
     background:
         radial-gradient(circle at top,
@@ -175,7 +175,7 @@
 
     padding:0;
 
-    overflow:hidden;
+    overflow:visible;
 
     border-radius:26px;
 
@@ -271,7 +271,7 @@
 
     max-height:420px;
 
-    overflow:hidden;
+    overflow:visible;
 
 }
 
@@ -349,7 +349,7 @@
 
     background:#283b66;
 
-    overflow:hidden;
+    overflow:visible;
 
 }
 
@@ -761,7 +761,7 @@
 
     pointer-events:none;
 
-    overflow:hidden;
+    overflow:visible;
 
     z-index:1;
 

@@ -4,7 +4,7 @@
 
 #notification-screen{
 
-    overflow:hidden;
+    overflow:visible;
 
     background:
         radial-gradient(circle at top,
