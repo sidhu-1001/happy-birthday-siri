@@ -57,10 +57,9 @@ body{
     position:relative;
 
     width:100vw;
+    min-height:100dvh;
 
-    height:100dvh;
-
-    overflow:hidden;
+    overflow-x:hidden;
 
 }
 
@@ -78,15 +77,9 @@ body{
     display:flex;
 
     justify-content:center;
-    align-items:flex-start;
-
-    overflow-y:auto;
-    overflow-x:hidden;
-
-    padding:20px 0;
+    align-items:center;
 
     opacity:0;
-
     visibility:hidden;
 
     pointer-events:none;

@@ -1,5 +1,5 @@
 /* ==================================================
-   NOTIFICATION SCREEN V4
+   NOTIFICATION SCREEN V5
 ================================================== */
 
 #notification-screen{
@@ -32,6 +32,10 @@
 
     animation:floatGlow 15s ease-in-out infinite;
 
+    pointer-events:none !important;
+
+    z-index:0;
+
 }
 
 /* ==================================================
@@ -41,7 +45,6 @@
 .phone-status{
 
     position:absolute;
-
     top:22px;
     left:22px;
     right:22px;
@@ -50,12 +53,7 @@
     justify-content:space-between;
     align-items:center;
 
-    color:white;
-
-    font-size:15px;
-    font-weight:600;
-
-    opacity:.95;
+    z-index:3;
 
 }
 
@@ -71,20 +69,34 @@
 
 .notification-wrapper{
 
-    width:100%;
+    position:relative;
 
-    max-width:420px;
-
-    margin:0 auto;
+    z-index:5;
 
     display:flex;
     flex-direction:column;
     align-items:center;
 
-    padding-top:120px;
+    padding-top:90px;
 
 }
 
+#notification-screen{
+
+    overflow-y:auto;
+
+}
+
+.notification-wrapper{
+
+    min-height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+}
 /* ==================================================
    CARD
 ================================================== */
@@ -122,9 +134,7 @@
 .notification-top{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     margin-bottom:18px;
@@ -205,6 +215,10 @@
 
     animation:buttonGlow 3s linear infinite;
 
+    position:relative;
+
+    z-index:30;
+
 }
 
 /* ==================================================
@@ -215,7 +229,7 @@
 
     .notification-wrapper{
 
-        padding-top:100px;
+        padding-top:95px;
 
     }
 
@@ -244,5 +258,15 @@
         font-size:16px;
 
     }
+
+}
+
+#open-notification{
+
+    position:relative;
+
+    z-index:999;
+
+    pointer-events:auto !important;
 
 }
