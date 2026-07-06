@@ -5,7 +5,8 @@
 
 #letter-screen{
 
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
 
     background:
     radial-gradient(
@@ -270,7 +271,8 @@
 
         width:92%;
 
-        height:86dvh;
+        min-height:86dvh;
+        height:auto;
 
         border-radius:28px;
 

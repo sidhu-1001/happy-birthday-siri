@@ -46,9 +46,8 @@
 
     .letter-paper{
 
-        height:92dvh;
-
-        padding:22px 18px;
+        min-height:92dvh;
+        height:auto;
 
     }
 
