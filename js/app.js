@@ -2,6 +2,8 @@
    birthday.exe v3.0
    Main Screen Manager
 ================================================== */
+console.log("APP LOADED");
+
 import { startNotification } from "./notification.js";
 import { startBoot } from "./boot.js";
 import { startBirthday } from "./birthday.js";
@@ -125,9 +127,11 @@ window.nextScreen = nextScreen;
    START
 ================================================== */
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
 
-    currentScreen=0;
+    console.log("Calling startNotification");
+
+    currentScreen = 0;
 
     showScreen(order[0]);
 
