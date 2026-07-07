@@ -4,16 +4,23 @@
 
 #birthday-screen{
 
-    overflow:visible;
+    display:flex;
 
+    justify-content:flex-start;
 
-    background:
-    radial-gradient(
-        circle at top,
-        #223564 0%,
-        #132241 45%,
-        #08111F 100%
-    );
+    align-items:center;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    min-height:100dvh;
+
+    padding:40px 20px 80px;
+
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
 
 }
 
