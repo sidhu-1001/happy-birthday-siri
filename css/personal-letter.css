@@ -5,13 +5,18 @@
 
 #letter-screen{
 
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
     overflow-y:auto;
-    overflow-x:hidden;
+
+    padding:25px 0;
 
     background:
     radial-gradient(
         circle at top,
-        #223564 0%,
+        #233766 0%,
         #132241 45%,
         #08111F 100%
     );
@@ -72,25 +77,31 @@
 
 .letter-paper{
 
+    position:relative;
+
     width:92%;
-    max-width:380px;
+    max-width:390px;
 
-    min-height:84dvh;
-    height:auto;
-
-    margin:40px auto;
+    min-height:92vh;
 
     display:flex;
     flex-direction:column;
 
-    overflow:visible;
+    margin:0 auto;
 
-    border-radius:32px;
+    overflow:hidden;
 
-    background:#FFFDF8;
+    border-radius:34px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #FFFDF9,
+        #F8F3E9
+    );
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
+        0 35px 90px rgba(0,0,0,.35);
 
 }
 

@@ -3,7 +3,7 @@
    birthday.exe v3.0
 ========================================== */
 
-
+console.log = () => {};
 
 const terminal = document.getElementById("terminal");
 
@@ -141,11 +141,20 @@ function createProgress(){
    ADD LINE
 ========================================== */
 
-function addLine(){
+function addLine() {
 
-    const body=document.getElementById("terminal-body");
+    console.log("LOG INDEX:", index);
 
-    if(index>=logs.length){
+    const body = document.getElementById("terminal-body");
+
+    if (!body) {
+        console.log("NO BODY");
+        return;
+    }
+
+    if (index >= logs.length) {
+
+        console.log("BOOT FINISHED");
 
         setTimeout(showReady,700);
 
@@ -153,13 +162,13 @@ function addLine(){
 
     }
 
-    const item=logs[index];
+    const item = logs[index];
 
-    if(item.type==="progress"){
+    console.log(item);
+
+    if (item.type === "progress") {
 
         body.appendChild(createProgress());
-
-        body.scrollTop=body.scrollHeight;
 
         index++;
 
@@ -169,43 +178,33 @@ function addLine(){
 
     }
 
-    const line=document.createElement("div");
+    const line = document.createElement("div");
 
-    line.className="terminal-line";
+    line.className = "terminal-line";
 
     switch(item.type){
 
-        case"command":
-
+        case "command":
             line.classList.add("terminal-command");
-
             break;
 
-        case"success":
-
+        case "success":
             line.classList.add("terminal-success");
-
             break;
 
-        case"error":
-
+        case "error":
             line.classList.add("terminal-error");
-
             break;
 
-        case"heart":
-
+        case "heart":
             line.classList.add("terminal-heart");
-
             break;
 
     }
 
-    line.textContent=item.text;
+    line.textContent = item.text;
 
     body.appendChild(line);
-
-    body.scrollTop=body.scrollHeight;
 
     index++;
 
@@ -219,41 +218,46 @@ function addLine(){
 
 function showReady(){
 
-    finished = true;
+    console.log("SHOW READY ENTERED");
 
-    const terminal = document.getElementById("terminal");
+    try{
 
-    terminal.style.opacity = "0";
+        finished = true;
 
-    terminal.style.transform = "translateY(30px)";
+        const terminal = document.getElementById("terminal");
 
-    setTimeout(()=>{
+        console.log("terminal =", terminal);
 
-        terminal.innerHTML = `
+        terminal.style.opacity = "0";
+        terminal.style.transform = "translateY(30px)";
 
-            <div class="boot-ready">
+        setTimeout(()=>{
 
-                <div class="ready-heart">
-                    ❤️
+            console.log("SETTING HTML");
+
+            terminal.innerHTML = `
+                <div class="boot-ready">
+                    <div class="ready-heart">❤️</div>
+                    <h2>System Ready</h2>
+                    <p>Tap Anywhere To Continue</p>
+                    <div class="version">birthday.exe v3.0</div>
                 </div>
+            `;
 
-                <h2>System Ready</h2>
+            console.log("HTML SET");
 
-                <p>Tap Anywhere To Continue</p>
+            terminal.style.opacity = "1";
+            terminal.style.transform = "translateY(0)";
 
-                <div class="version">
-                    birthday.exe v3.0
-                </div>
+            console.log("DONE");
 
-            </div>
+        },500);
 
-        `;
+    }catch(err){
 
-        terminal.style.opacity = "1";
+        console.error("SHOW READY ERROR:", err);
 
-        terminal.style.transform = "translateY(0)";
-
-    },500);
+    }
 
 }
 
@@ -263,11 +267,13 @@ function showReady(){
 
 export function startBoot(){
 
-    finished=false;
+   
+    console.log("BOOT START");
 
-    index=0;
+    finished = false;
+    index = 0;
 
-    terminal.innerHTML=createHeader();
+    terminal.innerHTML = createHeader();
 
     setTimeout(addLine,700);
 

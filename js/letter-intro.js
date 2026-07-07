@@ -106,6 +106,20 @@ function finish(){
 
 }
 
+export function startPersonalLetter() {
+
+    const screen = document.getElementById("letter-screen");
+
+    // Reset all scrolling
+    screen.scrollTop = 0;
+
+    const paper = document.querySelector(".letter-paper");
+    if (paper) paper.scrollTop = 0;
+
+    window.scrollTo(0,0);
+
+    // your remaining code...
+}
 /* ==========================================
    START
 ========================================== */
