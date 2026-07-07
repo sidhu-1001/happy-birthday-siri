@@ -1,19 +1,29 @@
 /* ==================================================
    ENDING SCREEN
-   birthday.exe v6.0
+   birthday.exe v7.0
 ================================================== */
 
 #ending-screen{
 
-    overflow:visible;
+    position:relative;
+
+    overflow-y:auto;
+
+    align-items:flex-start;
+
+    justify-content:flex-start;
+
+    padding:40px 20px 80px;
+
+    scroll-behavior:smooth;
 
     background:
-    radial-gradient(
-        circle at top,
-        #223564 0%,
-        #132241 45%,
-        #08111F 100%
-    );
+        radial-gradient(
+            circle at top,
+            #233766 0%,
+            #132241 45%,
+            #08111F 100%
+        );
 
 }
 
@@ -30,8 +40,8 @@
     width:420px;
     height:420px;
 
-    top:-180px;
     left:-180px;
+    top:-180px;
 
     border-radius:50%;
 
@@ -62,29 +72,40 @@
 }
 
 /* ==================================================
+   SCROLL CONTAINER
+================================================== */
+
+.ending-scroll{
+
+    width:100%;
+
+    max-width:390px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    z-index:2;
+
+}
+
+/* ==================================================
    CARD
 ================================================== */
 
 .ending-card{
 
-    width:92%;
-    max-width:380px;
+    width:100%;
 
-    height:88dvh;
-
-    display:flex;
-    flex-direction:column;
-
-    border-radius:34px;
-
-    overflow:visible;
-
-    padding:0;
+    padding:50px 34px;
 
     border-radius:34px;
 
     background:
-
         linear-gradient(
             180deg,
             #FFFDF9,
@@ -94,7 +115,6 @@
     text-align:center;
 
     box-shadow:
-
         0 35px 80px rgba(0,0,0,.35);
 
 }
@@ -103,7 +123,7 @@
    HEART
 ================================================== */
 
-.ending-heart{
+.ending-logo{
 
     font-size:62px;
 
@@ -121,46 +141,23 @@
 
     color:#2C2C2C;
 
-    font-size:2.2rem;
+    font-size:3rem;
 
-    font-weight:700;
-
-}
-
-.ending-status{
-
-    margin-top:12px;
-
-    color:#ff5b93;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    letter-spacing:3px;
+    font-weight:800;
 
 }
 
-/* ==================================================
-   DIVIDER
-================================================== */
+.ending-subtitle{
 
-.ending-divider{
+    margin-top:16px;
 
-    width:70%;
+    color:#FF5B93;
 
-    height:1px;
+    font-size:16px;
 
-    margin:24px auto;
+    font-weight:700;
 
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(0,0,0,.12),
-            transparent
-        );
+    letter-spacing:5px;
 
 }
 
@@ -170,6 +167,8 @@
 
 #ending-message{
 
+    margin-top:45px;
+
     text-align:left;
 
 }
@@ -178,11 +177,61 @@
 
     color:#4C4C4C;
 
-    font-size:18px;
+    font-size:19px;
 
-    line-height:1.8;
+    line-height:2;
 
-    margin-bottom:12px;
+    margin-bottom:18px;
+
+}
+
+/* ==================================================
+   SCROLL HINT
+================================================== */
+
+.scroll-hint{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:60px 0 20px;
+
+    color:rgba(255,255,255,.85);
+
+    animation:bounce 2s infinite;
+
+}
+
+.scroll-hint span{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+}
+
+.scroll-arrow{
+
+    font-size:34px;
+
+    line-height:1;
+
+}
+
+/* ==================================================
+   SPACE
+================================================== */
+
+.ending-space{
+
+    height:120px;
 
 }
 
@@ -192,31 +241,60 @@
 
 #terminal-ending{
 
-    margin-top:12px;
+    width:100%;
 
-    padding:18px;
+    padding:26px;
 
-    border-radius:18px;
+    border-radius:26px;
 
-    background:#0C1323;
+    background:rgba(255,255,255,.06);
 
-    text-align:left;
+    backdrop-filter:blur(20px);
 
-    min-height:140px;
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#59FF8B;
 
     font-family:monospace;
 
-    overflow:visible;
+    font-size:16px;
+
+    line-height:2.2;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
 
 }
 
 .terminal-line{
 
-    color:#59ff8b;
+    margin-bottom:10px;
 
-    margin-bottom:8px;
+    color:#59FF8B;
 
     animation:fadeUp .35s ease;
+
+}
+
+/* ==================================================
+   PS
+================================================== */
+
+#ending-ps{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    color:#BFC9D8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    opacity:0;
+
+    transition:1s;
 
 }
 
@@ -228,31 +306,33 @@
 
     width:100%;
 
-    height:58px;
+    height:60px;
 
-    margin-top:28px;
+    margin-top:35px;
+
+    margin-bottom:100px;
 
     border:none;
 
     border-radius:999px;
 
-    color:#fff;
+    cursor:pointer;
 
-    font-size:19px;
+    color:#FFF;
+
+    font-size:20px;
 
     font-weight:700;
 
     background:
-
         linear-gradient(
             90deg,
-            #ff4f9d,
-            #ff7d86,
-            #ffc364
+            #FF4F9D,
+            #FF7D86,
+            #FFC364
         );
 
     box-shadow:
-
         0 18px 35px rgba(255,94,156,.28);
 
     opacity:0;
@@ -271,23 +351,11 @@
 
 }
 
-/* ==================================================
-   PS
-================================================== */
+#replay:hover{
 
-#ending-ps{
-
-    margin-top:26px;
-
-    color:#777;
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    opacity:0;
-
-    transition:1s;
+    transform:
+        translateY(-3px)
+        scale(1.02);
 
 }
 
@@ -297,23 +365,59 @@
 
 @media(max-width:430px){
 
+    #ending-screen{
+
+        padding:30px 18px 70px;
+
+    }
+
     .ending-card{
 
-        width:92%;
-
-        padding:34px 24px;
+        padding:40px 24px;
 
     }
 
     .ending-title{
 
-        font-size:2rem;
+        font-size:2.5rem;
+
+    }
+
+    .ending-subtitle{
+
+        font-size:14px;
+
+        letter-spacing:3px;
 
     }
 
     #ending-message p{
 
-        font-size:17px;
+        font-size:18px;
+
+        line-height:1.9;
+
+    }
+
+    .scroll-hint{
+
+        margin:50px 0 20px;
+
+    }
+
+    #terminal-ending{
+
+        padding:22px;
+
+        font-size:15px;
+
+    }
+
+    #replay{
+
+        height:58px;
+
+        font-size:18px;
 
     }
 

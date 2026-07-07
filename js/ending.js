@@ -1,6 +1,6 @@
 /* ==========================================
    ending.js
-   birthday.exe v6.0
+   birthday.exe v7.0
 ========================================== */
 
 import { endingMessage, terminalLines } from "../data/ending.js";
@@ -18,37 +18,56 @@ const ps = document.getElementById("ending-ps");
    START
 ========================================== */
 
-export function startEnding(){
+export function startEnding() {
 
-    if(!message) return;
+    if (!message) return;
 
-    replay.classList.remove("show");
-
-    terminal.innerHTML = "";
-
-    ps.textContent = "";
-
+    // Reset everything
     message.innerHTML = "";
+
+    if (terminal) terminal.innerHTML = "";
+
+    if (replay) replay.classList.remove("show");
+
+    if (ps) {
+        ps.innerHTML = "";
+        ps.style.opacity = "0";
+    }
+
+    // Scroll screen to top
+    const screen = document.getElementById("ending-screen");
+
+    if (screen) {
+
+        screen.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+    }
 
     typeMessage();
 
 }
 
 /* ==========================================
-   TYPE MAIN MESSAGE
+   TYPE MESSAGE
 ========================================== */
 
-function typeMessage(){
+function typeMessage() {
 
-    const lines = endingMessage.trim().split("\n");
+    const lines = endingMessage
+        .trim()
+        .split("\n")
+        .filter(line => line.trim() !== "");
 
     let index = 0;
 
-    function next(){
+    function next() {
 
-        if(index >= lines.length){
+        if (index >= lines.length) {
 
-            typeTerminal();
+            setTimeout(typeTerminal, 800);
 
             return;
 
@@ -59,24 +78,21 @@ function typeMessage(){
         p.textContent = lines[index];
 
         p.style.opacity = "0";
-
-        p.style.transform = "translateY(12px)";
-
-        p.style.transition = ".45s";
+        p.style.transform = "translateY(20px)";
+        p.style.transition = ".45s ease";
 
         message.appendChild(p);
 
-        requestAnimationFrame(()=>{
+        requestAnimationFrame(() => {
 
             p.style.opacity = "1";
-
-            p.style.transform = "translateY(0px)";
+            p.style.transform = "translateY(0)";
 
         });
 
         index++;
 
-        setTimeout(next,260);
+        setTimeout(next, 260);
 
     }
 
@@ -88,15 +104,23 @@ function typeMessage(){
    TERMINAL
 ========================================== */
 
-function typeTerminal(){
+function typeTerminal() {
+
+    if (!terminal) {
+
+        finish();
+
+        return;
+
+    }
 
     let i = 0;
 
-    function next(){
+    function next() {
 
-        if(i >= terminalLines.length){
+        if (i >= terminalLines.length) {
 
-            finish();
+            setTimeout(finish, 800);
 
             return;
 
@@ -104,9 +128,9 @@ function typeTerminal(){
 
         const line = document.createElement("div");
 
-        line.textContent = "> " + terminalLines[i];
-
         line.className = "terminal-line";
+
+        line.textContent = "> " + terminalLines[i];
 
         terminal.appendChild(line);
 
@@ -114,7 +138,7 @@ function typeTerminal(){
 
         i++;
 
-        setTimeout(next,450);
+        setTimeout(next, 450);
 
     }
 
@@ -126,18 +150,32 @@ function typeTerminal(){
    FINISH
 ========================================== */
 
-function finish(){
+function finish() {
 
-    replay.classList.add("show");
+    if (ps) {
 
-    ps.innerHTML = `
-        PS...
-        <br><br>
-        You'll always have a special place
-        in one person's memories. ❤️
-    `;
+        ps.innerHTML = `
 
-    ps.style.opacity = "1";
+            <br>
+
+            PS...
+
+            <br><br>
+
+            You'll always have a special place
+            in one person's memories. ❤️
+
+        `;
+
+        ps.style.opacity = "1";
+
+    }
+
+    if (replay) {
+
+        replay.classList.add("show");
+
+    }
 
 }
 
@@ -145,9 +183,9 @@ function finish(){
    REPLAY
 ========================================== */
 
-if(replay){
+if (replay) {
 
-    replay.addEventListener("click",()=>{
+    replay.addEventListener("click", () => {
 
         location.reload();
 
