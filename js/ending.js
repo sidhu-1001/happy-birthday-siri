@@ -1,6 +1,6 @@
 /* ==========================================
    ending.js
-   birthday.exe v7.0
+   birthday.exe v8.0
 ========================================== */
 
 import { endingMessage, terminalLines } from "../data/ending.js";
@@ -9,39 +9,60 @@ import { endingMessage, terminalLines } from "../data/ending.js";
    ELEMENTS
 ========================================== */
 
+const screen = document.getElementById("ending-screen");
+
 const message = document.getElementById("ending-message");
+
 const terminal = document.getElementById("terminal-ending");
+
 const replay = document.getElementById("replay");
+
 const ps = document.getElementById("ending-ps");
+
+const hint = document.querySelector(".scroll-hint");
 
 /* ==========================================
    START
 ========================================== */
 
-export function startEnding() {
+export function startEnding(){
 
-    if (!message) return;
+    if(!message) return;
 
-    // Reset everything
     message.innerHTML = "";
 
-    if (terminal) terminal.innerHTML = "";
+    if(terminal) terminal.innerHTML = "";
 
-    if (replay) replay.classList.remove("show");
+    if(ps){
 
-    if (ps) {
         ps.innerHTML = "";
+
         ps.style.opacity = "0";
+
     }
 
-    // Scroll screen to top
-    const screen = document.getElementById("ending-screen");
+    if(replay){
 
-    if (screen) {
+        replay.classList.remove("show");
+
+    }
+
+    if(hint){
+
+        hint.style.opacity = "1";
+
+        hint.style.pointerEvents = "auto";
+
+    }
+
+    if(screen){
 
         screen.scrollTo({
-            top: 0,
-            behavior: "auto"
+
+            top:0,
+
+            behavior:"auto"
+
         });
 
     }
@@ -51,23 +72,26 @@ export function startEnding() {
 }
 
 /* ==========================================
-   TYPE MESSAGE
+   TYPE LETTER
 ========================================== */
 
-function typeMessage() {
+function typeMessage(){
 
     const lines = endingMessage
+
         .trim()
+
         .split("\n")
-        .filter(line => line.trim() !== "");
+
+        .filter(line=>line.trim()!="");
 
     let index = 0;
 
-    function next() {
+    function next(){
 
-        if (index >= lines.length) {
+        if(index >= lines.length){
 
-            setTimeout(typeTerminal, 800);
+            setTimeout(typeTerminal,800);
 
             return;
 
@@ -78,21 +102,24 @@ function typeMessage() {
         p.textContent = lines[index];
 
         p.style.opacity = "0";
-        p.style.transform = "translateY(20px)";
+
+        p.style.transform = "translateY(18px)";
+
         p.style.transition = ".45s ease";
 
         message.appendChild(p);
 
-        requestAnimationFrame(() => {
+        requestAnimationFrame(()=>{
 
             p.style.opacity = "1";
+
             p.style.transform = "translateY(0)";
 
         });
 
         index++;
 
-        setTimeout(next, 260);
+        setTimeout(next,260);
 
     }
 
@@ -104,9 +131,9 @@ function typeMessage() {
    TERMINAL
 ========================================== */
 
-function typeTerminal() {
+function typeTerminal(){
 
-    if (!terminal) {
+    if(!terminal){
 
         finish();
 
@@ -116,11 +143,11 @@ function typeTerminal() {
 
     let i = 0;
 
-    function next() {
+    function next(){
 
-        if (i >= terminalLines.length) {
+        if(i >= terminalLines.length){
 
-            setTimeout(finish, 800);
+            setTimeout(finish,700);
 
             return;
 
@@ -138,7 +165,7 @@ function typeTerminal() {
 
         i++;
 
-        setTimeout(next, 450);
+        setTimeout(next,450);
 
     }
 
@@ -150,28 +177,22 @@ function typeTerminal() {
    FINISH
 ========================================== */
 
-function finish() {
+function finish(){
 
-    if (ps) {
+    if(ps){
 
         ps.innerHTML = `
+        No matter where life takes us...
 
-            <br>
-
-            PS...
-
-            <br><br>
-
-            You'll always have a special place
-            in one person's memories. ❤️
-
+        You'll always have a special place
+        in one person's memories. ❤️
         `;
 
         ps.style.opacity = "1";
 
     }
 
-    if (replay) {
+    if(replay){
 
         replay.classList.add("show");
 
@@ -180,15 +201,37 @@ function finish() {
 }
 
 /* ==========================================
+   HIDE SCROLL HINT
+========================================== */
+
+if(screen && hint){
+
+    screen.addEventListener("scroll",()=>{
+
+        if(screen.scrollTop > 30){
+
+            hint.style.opacity = "0";
+
+            hint.style.transform = "translateY(-10px)";
+
+            hint.style.pointerEvents = "none";
+
+        }
+
+    });
+
+}
+
+/* ==========================================
    REPLAY
 ========================================== */
 
-if (replay) {
+if(replay){
 
-    replay.addEventListener("click", () => {
+    replay.onclick = ()=>{
 
         location.reload();
 
-    });
+    };
 
 }
