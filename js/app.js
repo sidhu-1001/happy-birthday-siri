@@ -46,19 +46,19 @@ let locked = false;
 
 export function showScreen(id){
 
-    screens.forEach(screen => {
+    screens.forEach(screen=>{
 
         screen.classList.remove("active");
 
-        screen.scrollTop = 0;
+        screen.scrollTop=0;
 
     });
 
-    const active = document.getElementById(id);
+    const active=document.getElementById(id);
 
     active.classList.add("active");
 
-    active.scrollTop = 0;
+    active.scrollTop=0;
 
     window.scrollTo(0,0);
 

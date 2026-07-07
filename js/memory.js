@@ -30,6 +30,11 @@ let finished=false;
 /* ==========================================
 START
 ========================================== */
+const screen = document.getElementById("memory-screen");
+
+screen.scrollTop = 0;
+
+window.scrollTo(0,0);
 
 export function startMemory(){
 

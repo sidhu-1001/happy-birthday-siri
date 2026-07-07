@@ -1,6 +1,6 @@
 /* ==================================================
    PERSONAL LETTER
-   birthday.exe v5.0
+   birthday.exe v6.0
 ================================================== */
 
 import { letterPages } from "../data/letter.js";
@@ -13,6 +13,7 @@ import { nextScreen } from "./app.js";
 const content = document.getElementById("letter-content");
 const button = document.getElementById("next-page");
 const pageNumber = document.getElementById("page-number");
+const screen = document.getElementById("letter-screen");
 
 let currentPage = 0;
 
@@ -20,66 +21,64 @@ let currentPage = 0;
    RENDER PAGE
 ================================================== */
 
-function renderPage(){
+function renderPage() {
 
-    if(!content) return;
+    if (!content) return;
+
+    const page = letterPages[currentPage];
 
     content.classList.remove("show");
 
-    setTimeout(()=>{
+    content.innerHTML = `
 
-        const page = letterPages[currentPage];
+        ${page.title ? `<h1 class="letter-title">${page.title}</h1>` : ""}
+
+        <div class="letter-text">
+
+            ${page.text}
+
+        </div>
+
+    `;
+
+    requestAnimationFrame(() => {
+
+        /* Reset ALL scroll positions */
 
         content.scrollTop = 0;
 
-        content.innerHTML = `
+        if (screen) {
+            screen.scrollTop = 0;
+        }
 
-            ${page.title
-                ? `<h1 class="letter-title">${page.title}</h1>`
-                : ""
-            }
+        window.scrollTo(0, 0);
 
-            <div class="letter-text" style="text-align:left;">
+        content.classList.add("show");
 
-                ${page.text}
+    });
 
-            </div>
+    if (pageNumber) {
 
-        `;
+        pageNumber.textContent =
+            `${currentPage + 1} / ${letterPages.length}`;
 
-        requestAnimationFrame(()=>{
+    }
 
-            content.classList.add("show");
+    if (button) {
 
-        });
+        if (currentPage === letterPages.length - 1) {
 
-        if(pageNumber){
+            button.textContent = "Finish ❤️";
+            button.classList.add("finish");
 
-            pageNumber.textContent =
-                `${currentPage + 1} / ${letterPages.length}`;
+        } else {
+
+            button.textContent = "Continue ❤️";
+            button.classList.remove("finish");
 
         }
 
-        if(button){
-
-            if(currentPage === letterPages.length - 1){
-
-                button.textContent = "Finish ❤️";
-
-                button.classList.add("finish");
-
-            }
-            else{
-
-                button.textContent = "Continue ❤️";
-
-                button.classList.remove("finish");
-
-            }
-
-        }
-
-    },200);
+    }
 
 }
 
@@ -87,7 +86,7 @@ function renderPage(){
    START
 ================================================== */
 
-export function startPersonalLetter(){
+export function startPersonalLetter() {
 
     currentPage = 0;
 
@@ -96,11 +95,7 @@ export function startPersonalLetter(){
 }
 
 /* ==================================================
-   NEXT PAGE
-================================================== */
-
-/* ==================================================
-   NEXT PAGE
+   BUTTON
 ================================================== */
 
 if (button) {
@@ -122,5 +117,3 @@ if (button) {
     });
 
 }
-
-

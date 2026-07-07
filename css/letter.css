@@ -176,7 +176,7 @@
 
     overflow-y:auto;
 
-    padding:56px 34px 20px;
+    padding:56px 34px 140px;
 
     scroll-behavior:smooth;
 
@@ -443,9 +443,9 @@
 
         padding:
 
-            42px
-            28px
-            18px;
+            56px
+            34px
+            140px;
 
     }
 
@@ -475,13 +475,11 @@
 
     #next-page{
 
-        height:56px;
+        position:relative;
 
         width:calc(100% - 40px);
 
-        margin-bottom:20px;
-
-        font-size:18px;
+        margin:20px auto 25px;
 
     }
 
